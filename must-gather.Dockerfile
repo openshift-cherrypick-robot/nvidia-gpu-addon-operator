@@ -10,7 +10,6 @@ ARG VERSION
 ENV VERSION=$VERSION
 COPY --from=builder /opt/app-root/src/oc /usr/bin/oc
 COPY --from=builder /usr/bin/tar /usr/bin/tar
-COPY --chown=1001:0 must-gather/gather* /usr/bin/
-USER 1001
+COPY must-gather/gather* /usr/bin/
 
 ENTRYPOINT ["/bin/bash"]
