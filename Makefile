@@ -190,7 +190,7 @@ envtest: ## Download envtest-setup locally if necessary.
 .PHONY: bundle
 bundle: manifests kustomize ## Generate bundle manifests and metadata, then validate generated files.
 	operator-sdk generate kustomize manifests -q
-	cd config/manager && $(KUSTOMIZE) edit set image controller=$(IMG)
+	cd config/manager && $(KUSTOMIZE) edit set image controller=$(IMG) && $(KUSTOMIZE) edit set image must-gather=$(MG_IMG)
 	$(KUSTOMIZE) build config/manifests | operator-sdk generate bundle --extra-service-accounts prometheus-k8s $(BUNDLE_GEN_FLAGS)
 	cp ./config/metadata/*.yaml ./bundle/metadata/
 	operator-sdk bundle validate ./bundle
