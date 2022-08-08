@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 set -o nounset
-set -o errexit
-set -o pipefail
 set -x
 
 BASE_COLLECTION_PATH="${BASE_COLLECTION_PATH:-/must-gather}"
