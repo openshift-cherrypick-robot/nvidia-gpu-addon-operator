@@ -13,7 +13,4 @@ fi
 
 /usr/bin/gather_addon_resources
 
-# Disable GPU operator must-gather for now
-# /usr/bin/gather_gpu_operator
-
 sync
