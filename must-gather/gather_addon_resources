@@ -13,8 +13,7 @@ if [[ -z "$ADDON_NAMESPACE" ]]; then
     ADDON_NAMESPACE=$DEFAULT_NS
 fi
 
-oc get ns $ADDON_NAMESPACE > /dev/null
-if [[ "$?" -ne 0 ]]; then
+if ! oc get ns $ADDON_NAMESPACE > /dev/null; then
   exit 1
 fi
 
