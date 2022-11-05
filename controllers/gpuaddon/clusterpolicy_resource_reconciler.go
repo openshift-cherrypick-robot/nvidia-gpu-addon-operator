@@ -103,6 +103,12 @@ func (r *ClusterPolicyResourceReconciler) setDesiredClusterPolicy(
 		Enabled: &enabled,
 	}
 
+	cp.Spec.DCGMExporter = gpuv1.DCGMExporterSpec{
+		ServiceMonitor: &gpuv1.DCGMExporterServiceMonitorConfig{
+			Enabled: &enabled,
+		},
+	}
+
 	cp.Spec.MIGManager = gpuv1.MIGManagerSpec{
 		Enabled: &enabled,
 	}
